@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     google: "zDltJ8SdWtzJwr506iCmU0mQKdmCE_jX7_WHYD6rSkc",
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://alquilercalc.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.alquilercalc.com.ar"
   ),
 };
 

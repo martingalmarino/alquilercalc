@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/resultados"],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://alquilercalc.vercel.app"}/sitemap.xml`,
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.alquilercalc.com.ar"}/sitemap.xml`,
   };
 }

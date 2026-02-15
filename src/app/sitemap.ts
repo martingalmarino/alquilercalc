@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { indexCodes } from "@data/mockIndices";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://alquilercalc.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.alquilercalc.com.ar";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

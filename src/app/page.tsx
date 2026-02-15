@@ -21,7 +21,7 @@ const jsonLd = {
   name: "Calculadora de Alquiler Argentina — AlquilerCalc",
   description:
     "Calculadora de alquiler gratuita para Argentina. Calculá el aumento de alquiler 2026 con ICL, IPC, UVA y 8 índices oficiales.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alquilercalc.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.alquilercalc.com.ar",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
   offers: {
