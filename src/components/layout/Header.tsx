@@ -26,8 +26,8 @@ export const Header = () => {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-bold text-white">
             A
           </span>
-          <span className="hidden xs:inline">Alquileres+AR</span>
-          <span className="xs:hidden">Alq+AR</span>
+          <span className="hidden xs:inline">AlquilerCalc</span>
+          <span className="xs:hidden">AlqCalc</span>
         </Link>
 
         {/* Desktop nav */}

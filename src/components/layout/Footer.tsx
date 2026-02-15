@@ -6,7 +6,7 @@ export const Footer = () => (
       <div className="max-w-xs">
         <p className="flex items-center gap-2 font-extrabold text-slate-800">
           <span className="flex h-6 w-6 items-center justify-center rounded-md bg-indigo-600 text-xs font-bold text-white">A</span>
-          Alquileres+AR
+          AlquilerCalc
         </p>
         <p className="mt-2 text-slate-500">
           Calculadora de actualización de alquileres para Argentina. Datos oficiales de BCRA, INDEC y datos.gob.ar.
@@ -29,10 +29,39 @@ export const Footer = () => (
           Guías
         </Link>
       </div>
+      <div className="flex flex-col gap-2">
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Otras calculadoras</p>
+        <a
+          href="https://calculadorapatentes.ar/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-500 transition hover:text-slate-800"
+        >
+          Calculadora de Patentes Argentina
+        </a>
+        <a
+          href="https://patentearba.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-500 transition hover:text-slate-800"
+        >
+          Calculadora Patente ARBA
+        </a>
+      </div>
     </div>
     <div className="border-t border-slate-200">
-      <div className="mx-auto max-w-6xl px-4 py-4 text-center text-xs text-slate-400 sm:px-6">
-        © {new Date().getFullYear()} Alquileres+AR — Proyecto de código abierto
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 py-4 text-center text-xs text-slate-400 sm:flex-row sm:justify-between sm:px-6">
+        <span>© {new Date().getFullYear()} AlquilerCalc — Proyecto de código abierto</span>
+        <span>
+          Desarrollado por{" "}
+          <a
+            href="mailto:m.galmarino@gmail.com"
+            className="font-medium text-slate-500 transition hover:text-indigo-600"
+          >
+            Martín Galmarino
+          </a>{" "}
+          🤖
+        </span>
       </div>
     </div>
   </footer>

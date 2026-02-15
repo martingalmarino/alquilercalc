@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Calculadora de Alquiler Argentina — Alquileres+AR",
+  name: "Calculadora de Alquiler Argentina — AlquilerCalc",
   description:
     "Calculadora de alquiler gratuita para Argentina. Calculá el aumento de alquiler 2026 con ICL, IPC, UVA y 8 índices oficiales.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alquilercalc.vercel.app",
@@ -188,22 +188,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Stats ── */}
-      <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-slate-200 sm:grid-cols-3">
-          {[
-            { value: "8", label: "Índices cubiertos" },
-            { value: "12", label: "Frecuencias disponibles" },
-            { value: "100%", label: "Código abierto" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1 bg-white px-6 py-8 sm:px-8 sm:py-10">
-              <span className="text-3xl font-extrabold text-indigo-600 sm:text-4xl">{stat.value}</span>
-              <span className="text-sm font-medium text-slate-500">{stat.label}</span>
-            </div>
-          ))}
         </div>
       </section>
 

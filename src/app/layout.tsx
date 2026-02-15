@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Calculadora de Alquiler Argentina 2026 | Aumento y Actualización | Alquileres+AR",
-    template: "%s | Alquileres+AR",
+    default: "Calculadora de Alquiler Argentina 2026 | Aumento y Actualización | AlquilerCalc",
+    template: "%s | AlquilerCalc",
   },
   description:
     "Calculadora de alquiler para Argentina 2026. Simulá el aumento de alquiler con ICL, IPC, UVA y más índices oficiales. Calculá cuánto aumenta el alquiler y proyectá toda la vida del contrato.",
@@ -36,16 +36,16 @@ export const metadata: Metadata = {
     "calculadora alquiler argentina",
   ],
   openGraph: {
-    title: "Calculadora de Alquiler Argentina 2026 — Simulá tu Aumento | Alquileres+AR",
+    title: "Calculadora de Alquiler Argentina 2026 — Simulá tu Aumento | AlquilerCalc",
     description:
       "Calculá cuánto aumenta el alquiler en 2026 con datos oficiales del BCRA e INDEC. Simulador gratuito con ICL, IPC, UVA, Casa Propia y más.",
     type: "website",
     locale: "es_AR",
-    siteName: "Alquileres+AR",
+    siteName: "AlquilerCalc",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calculadora de Alquiler Argentina 2026 | Alquileres+AR",
+    title: "Calculadora de Alquiler Argentina 2026 | AlquilerCalc",
     description:
       "Simulá el aumento de alquiler con índices oficiales. Calculadora gratuita para inquilinos y propietarios.",
   },

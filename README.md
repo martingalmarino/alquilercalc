@@ -1,4 +1,4 @@
-# Alquileres+AR
+# AlquilerCalc
 
 Calculadora premium para actualización de alquileres en Argentina. Proyecciones con 8 índices oficiales (ICL, CER, UVA, IPC, IS, IPIM, CAC, CasaPropia) y resultados compartibles.
 
