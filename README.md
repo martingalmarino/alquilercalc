@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alquileres+AR
 
-## Getting Started
+Calculadora premium para actualización de alquileres en Argentina. Proyecciones con 8 índices oficiales (ICL, CER, UVA, IPC, IS, IPIM, CAC, CasaPropia) y resultados compartibles.
 
-First, run the development server:
+## Cómo correr el proyecto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build de producción:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura del proyecto
 
-## Learn More
+- `src/app`: páginas con App Router (landing, calculadora, resultados, índices, metodología, FAQ, guías).
+- `src/components`: UI y módulos de calculadora.
+- `src/lib`: motor de cálculo, formateadores, cache y fetchers de datos reales.
+- `src/lib/fetchers`: clientes para datos.gob.ar y registry de fuentes de datos.
+- `data`: tipos/metadata de índices, seeds para índices sin API pública, cache en disco.
 
-To learn more about Next.js, take a look at the following resources:
+## Fuentes de datos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Índice     | Fuente                      | Método               |
+|------------|-----------------------------|-----------------------|
+| CER        | datos.gob.ar (BCRA)         | API series de tiempo  |
+| UVA        | datos.gob.ar (BCRA)         | API series de tiempo  |
+| IPC        | datos.gob.ar (INDEC)        | API series de tiempo  |
+| IS (RIPTE) | datos.gob.ar (MTSS)         | API series de tiempo  |
+| IPIM       | datos.gob.ar (INDEC)        | API series de tiempo  |
+| ICL        | BCRA (seed manual)          | Datos semilla         |
+| CAC        | CAC (seed manual)           | Datos semilla         |
+| CasaPropia | Casa Propia (seed manual)   | Datos semilla         |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Los datos se cachean en memoria (15 min TTL) y en disco para minimizar llamadas externas.
 
-## Deploy on Vercel
+## Scripts disponibles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev`: desarrollo
+- `npm run build`: build producción
+- `npm run start`: ejecutar build
+- `npm run lint`: lint
