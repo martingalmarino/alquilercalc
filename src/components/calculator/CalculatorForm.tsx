@@ -147,9 +147,9 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
         {/* ── Form sections ── */}
         <div className="flex flex-col divide-y divide-slate-100">
           {/* Section 1: Contract basics */}
-          <div className="p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
                 <DollarSign className="h-[18px] w-[18px]" />
               </span>
               <div>
@@ -175,9 +175,9 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
           </div>
 
           {/* Section 2: Index selection */}
-          <div className="p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
                 <BarChart3 className="h-[18px] w-[18px]" />
               </span>
               <div>
@@ -205,9 +205,9 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
           </div>
 
           {/* Section 3: Frequency & Duration */}
-          <div className="p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
                 <Clock className="h-[18px] w-[18px]" />
               </span>
               <div>
@@ -244,8 +244,8 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
         </div>
 
         {/* ── Submit ── */}
-        <div className="flex items-center gap-4 border-t border-slate-100 bg-slate-50/50 px-6 py-5 md:px-8">
-          <Button type="button" onClick={handleCalculate} disabled={loading}>
+        <div className="flex flex-col gap-3 border-t border-slate-100 bg-slate-50/50 px-4 py-4 sm:flex-row sm:items-center sm:gap-4 sm:px-6 sm:py-5 md:px-8">
+          <Button type="button" onClick={handleCalculate} disabled={loading} className="w-full sm:w-auto">
             {loading ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -258,7 +258,7 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
               </>
             )}
           </Button>
-          <p className="hidden text-xs text-slate-400 sm:block">
+          <p className="text-center text-xs text-slate-400 sm:text-left">
             Datos oficiales de BCRA, INDEC y datos.gob.ar.
           </p>
         </div>

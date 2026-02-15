@@ -44,26 +44,26 @@ export default function Home() {
         <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-violet-500/15 blur-3xl" />
 
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-24 text-center md:py-32">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-300">
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-5 px-4 py-16 text-center sm:gap-6 sm:px-6 sm:py-24 md:py-32">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Simulador aumento alquiler — Gratis
           </span>
 
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-6xl">
+          <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-6xl">
             Calculadora de alquiler:{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
               calculá tu aumento 2026
             </span>
           </h1>
 
-          <p className="max-w-xl text-lg leading-relaxed text-slate-300">
+          <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
             ¿Cuánto aumenta el alquiler? Simulá la actualización de tu alquiler en Argentina
             con ICL, IPC, Casa Propia y más índices oficiales. Proyectá toda la vida del
             contrato, exportá CSV y compartí resultados.
           </p>
 
-          <div className="mt-4 flex flex-wrap justify-center gap-4">
+          <div className="mt-4 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
             <Link
               href="/calculadora"
               className="inline-flex items-center justify-center rounded-full bg-indigo-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400 hover:shadow-indigo-400/30"
@@ -81,9 +81,9 @@ export default function Home() {
       </section>
 
       {/* ── Features ── */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-20">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold text-slate-900">
+      <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
+        <div className="mb-8 text-center sm:mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
             Cómo calcular el aumento de alquiler en Argentina
           </h2>
           <p className="mt-3 text-slate-500">
@@ -148,13 +148,13 @@ export default function Home() {
 
       {/* ── How it works ── */}
       <section className="bg-slate-50">
-        <div className="mx-auto w-full max-w-6xl px-6 py-20">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-slate-900">Cómo calcular aumento de alquiler en 3 pasos</h2>
-            <p className="mt-3 text-slate-500">Usá nuestro simulador de aumento de alquiler y obtené resultados en segundos.</p>
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
+          <div className="mb-8 text-center sm:mb-12">
+            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Cómo calcular aumento de alquiler en 3 pasos</h2>
+            <p className="mt-3 text-sm text-slate-500 sm:text-base">Usá nuestro simulador de aumento de alquiler y obtené resultados en segundos.</p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
             {[
               {
                 step: "01",
@@ -192,15 +192,15 @@ export default function Home() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-20">
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-slate-200 md:grid-cols-3">
+      <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
+        <div className="grid gap-px overflow-hidden rounded-2xl bg-slate-200 sm:grid-cols-3">
           {[
             { value: "8", label: "Índices cubiertos" },
             { value: "12", label: "Frecuencias disponibles" },
             { value: "100%", label: "Código abierto" },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1 bg-white px-8 py-10">
-              <span className="text-4xl font-extrabold text-indigo-600">{stat.value}</span>
+            <div key={stat.label} className="flex flex-col items-center gap-1 bg-white px-6 py-8 sm:px-8 sm:py-10">
+              <span className="text-3xl font-extrabold text-indigo-600 sm:text-4xl">{stat.value}</span>
               <span className="text-sm font-medium text-slate-500">{stat.label}</span>
             </div>
           ))}
@@ -208,9 +208,9 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="mx-auto w-full max-w-6xl px-6 pb-20">
-        <div className="flex flex-col items-center gap-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 px-8 py-16 text-center shadow-xl shadow-indigo-600/20">
-          <h2 className="text-3xl font-bold text-white">¿Cuánto aumenta el alquiler en 2026?</h2>
+      <section className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
+        <div className="flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-12 text-center shadow-xl shadow-indigo-600/20 sm:gap-6 sm:px-8 sm:py-16">
+          <h2 className="text-2xl font-bold text-white sm:text-3xl">¿Cuánto aumenta el alquiler en 2026?</h2>
           <p className="max-w-md text-indigo-100">
             Usá nuestra calculadora de alquiler y obtené una proyección clara del aumento en segundos.
           </p>

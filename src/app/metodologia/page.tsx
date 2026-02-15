@@ -14,12 +14,12 @@ export default function MetodologiaPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
         <div className="pointer-events-none absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-20 -right-20 h-[300px] w-[300px] rounded-full bg-violet-500/15 blur-3xl" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-6 py-16 text-center md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-300">
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Cómo calcular aumento de alquiler
           </span>
-          <h1 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+          <h1 className="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
             Metodología de{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
               cálculo de alquiler
@@ -33,19 +33,19 @@ export default function MetodologiaPage() {
       </section>
 
       {/* ── Content Sections ── */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-16">
+      <section className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="space-y-8">
           {/* Formula */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
               <Ruler className="h-5 w-5" />
             </div>
-            <h2 className="text-xl font-bold text-slate-900">Fórmula para calcular el aumento de alquiler</h2>
+            <h2 className="text-lg font-bold text-slate-900 sm:text-xl">Fórmula para calcular el aumento de alquiler</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               El alquiler se ajusta multiplicando el valor actual por el factor del índice
               correspondiente al período. Así se calcula cuánto aumenta el alquiler:
             </p>
-            <div className="mt-4 rounded-xl border border-indigo-100 bg-indigo-50/50 px-5 py-4 font-mono text-sm font-semibold text-indigo-700">
+            <div className="mt-4 overflow-x-auto rounded-xl border border-indigo-100 bg-indigo-50/50 px-4 py-3 font-mono text-xs font-semibold text-indigo-700 sm:px-5 sm:py-4 sm:text-sm">
               nuevoAlquiler = alquilerAnterior × (ÍndiceFin / ÍndiceInicio)
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">
@@ -55,11 +55,11 @@ export default function MetodologiaPage() {
           </div>
 
           {/* Sources */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
               <Landmark className="h-5 w-5" />
             </div>
-            <h2 className="text-xl font-bold text-slate-900">Fuentes de datos: índices de alquiler oficiales</h2>
+            <h2 className="text-lg font-bold text-slate-900 sm:text-xl">Fuentes de datos: índices de alquiler oficiales</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               Los índices de alquiler se obtienen de fuentes oficiales de Argentina para garantizar la precisión del cálculo de aumento:
             </p>
@@ -87,11 +87,11 @@ export default function MetodologiaPage() {
           </div>
 
           {/* Frequency & Dates */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
               <CalendarDays className="h-5 w-5" />
             </div>
-            <h2 className="text-xl font-bold text-slate-900">Frecuencia y fechas de actualización de alquiler</h2>
+            <h2 className="text-lg font-bold text-slate-900 sm:text-xl">Frecuencia y fechas de actualización de alquiler</h2>
             <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600">
               <p>
                 Para índices diarios se usa el último dato disponible en o antes de la fecha

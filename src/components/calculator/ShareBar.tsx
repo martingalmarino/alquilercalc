@@ -46,16 +46,16 @@ export const ShareBar = ({ shareUrl, rows }: { shareUrl: string; rows: ScheduleR
   };
 
   return (
-    <div className="flex flex-wrap gap-3">
-      <Button type="button" variant="outline" onClick={handleCopy}>
+    <div className="grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
+      <Button type="button" variant="outline" onClick={handleCopy} className="w-full sm:w-auto">
         {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
         {copied ? "¡Copiado!" : "Copiar enlace"}
       </Button>
-      <Button type="button" variant="outline" onClick={handleExport}>
+      <Button type="button" variant="outline" onClick={handleExport} className="w-full sm:w-auto">
         <Download className="h-4 w-4" />
         Exportar CSV
       </Button>
-      <Button type="button" variant="ghost" onClick={() => window.print()}>
+      <Button type="button" variant="ghost" onClick={() => window.print()} className="w-full sm:w-auto">
         <Printer className="h-4 w-4" />
         Imprimir
       </Button>

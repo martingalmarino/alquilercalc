@@ -62,12 +62,12 @@ export default function FaqPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
         <div className="pointer-events-none absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-20 -right-20 h-[300px] w-[300px] rounded-full bg-violet-500/15 blur-3xl" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-6 py-16 text-center md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-300">
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Aumento alquiler 2026
           </span>
-          <h1 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+          <h1 className="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
             Preguntas frecuentes sobre{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
               aumento de alquiler
@@ -81,16 +81,16 @@ export default function FaqPage() {
       </section>
 
       {/* ── FAQ List ── */}
-      <section className="mx-auto w-full max-w-4xl px-6 py-16">
+      <section className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="space-y-4">
           {faqs.map((faq, i) => (
             <details
               key={i}
               className="group rounded-2xl border border-slate-200 bg-white shadow-sm transition-all open:shadow-lg open:shadow-indigo-500/10"
             >
-              <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left text-sm font-bold text-slate-900 transition hover:text-indigo-600 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-xs font-bold text-indigo-600">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 px-4 py-4 text-left text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:gap-4 sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+                <span className="flex items-center gap-2 sm:gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-[10px] font-bold text-indigo-600 sm:h-8 sm:w-8 sm:text-xs">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {faq.q}
@@ -99,20 +99,20 @@ export default function FaqPage() {
                   +
                 </span>
               </summary>
-              <div className="border-t border-slate-100 px-6 pb-5 pt-4">
-                <p className="pl-11 text-sm leading-relaxed text-slate-600">{faq.a}</p>
+              <div className="border-t border-slate-100 px-4 pb-4 pt-3 sm:px-6 sm:pb-5 sm:pt-4">
+                <p className="pl-9 text-sm leading-relaxed text-slate-600 sm:pl-11">{faq.a}</p>
               </div>
             </details>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-12 rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 p-8 text-center">
-          <h2 className="text-xl font-bold text-slate-900">¿Querés calcular cuánto aumenta tu alquiler?</h2>
+        <div className="mt-10 rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 p-6 text-center sm:mt-12 sm:p-8">
+          <h2 className="text-lg font-bold text-slate-900 sm:text-xl">¿Querés calcular cuánto aumenta tu alquiler?</h2>
           <p className="mt-2 text-sm text-slate-600">
             Usá nuestra calculadora de alquiler o revisá la metodología de cálculo de aumento.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Link
               href="/metodologia"
               className="inline-flex items-center justify-center rounded-full bg-indigo-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"

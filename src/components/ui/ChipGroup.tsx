@@ -24,7 +24,7 @@ export const ChipGroup = <T extends string | number>({
 }: ChipGroupProps<T>) => (
   <fieldset className="flex flex-col gap-3">
     {label && <legend className="text-sm font-medium text-slate-700">{label}</legend>}
-    <div className="flex flex-wrap gap-2">
+    <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 scrollbar-none">
       {options.map((option) => {
         const active = option.value === value;
         return (
@@ -35,7 +35,7 @@ export const ChipGroup = <T extends string | number>({
             onClick={() => onChange(option.value)}
             disabled={disabled}
             className={cn(
-              "rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/40",
+              "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/40",
               disabled && "cursor-not-allowed opacity-60",
               active
                 ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
