@@ -40,6 +40,7 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
   const [shareUrl, setShareUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [indicesLoaded, setIndicesLoaded] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   /* ── Persist form state ── */
   useEffect(() => {
@@ -112,10 +113,19 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
   const handleCalculate = async () => {
     if (!validate()) return;
     setLoading(true);
+    setApiError(null);
     try {
       const from = contractStart;
       const to = format(addMonths(parseISO(contractStart), durationMonths), "yyyy-MM-dd");
       const payload = await fetchIndexSeries(indexCode, from, to);
+
+      if (!payload.series || payload.series.length === 0) {
+        setApiError(
+          `No hay datos disponibles para el índice ${indexCode} en el rango seleccionado. Probá con otra fecha o índice.`
+        );
+        return;
+      }
+
       const result = computeSchedule({
         initialRent: initialRentValue,
         contractStart,
@@ -136,6 +146,11 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
         rounding: "none",
       });
       setShareUrl(`${window.location.origin}/resultados?${params.toString()}`);
+    } catch (err) {
+      console.error("[handleCalculate] Error:", err);
+      setApiError(
+        "No se pudieron obtener los datos del índice. Por favor, intentá de nuevo en unos segundos."
+      );
     } finally {
       setLoading(false);
     }
@@ -242,6 +257,13 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
             </div>
           </div>
         </div>
+
+        {/* ── Error banner ── */}
+        {apiError && (
+          <div className="mx-4 mb-0 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 sm:mx-6 md:mx-8">
+            <p className="font-medium">⚠ {apiError}</p>
+          </div>
+        )}
 
         {/* ── Submit ── */}
         <div className="flex flex-col gap-3 border-t border-slate-100 bg-slate-50/50 px-4 py-4 sm:flex-row sm:items-center sm:gap-4 sm:px-6 sm:py-5 md:px-8">
