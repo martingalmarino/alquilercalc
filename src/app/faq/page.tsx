@@ -59,38 +59,36 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {/* ── Page Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-        <div className="pointer-events-none absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-[300px] w-[300px] rounded-full bg-violet-500/15 blur-3xl" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Aumento alquiler 2026
-          </span>
-          <h1 className="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
-            Preguntas frecuentes sobre{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              aumento de alquiler
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
+          <div className="space-y-4">
+            <span className="inline-flex w-fit items-center gap-3 rounded-full border border-slate-700/80 bg-slate-800/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-200">
+              Aumento de alquiler 2026
             </span>
-          </h1>
-          <p className="max-w-lg text-base leading-relaxed text-slate-300">
-            Respuestas sobre cómo calcular el aumento de alquiler, qué índice usar
-            y cómo funciona la calculadora de alquiler.
-          </p>
+            <h1 className="text-3xl font-semibold tracking-tighter leading-none md:text-5xl">
+              Preguntas frecuentes sobre el cálculo de alquiler
+            </h1>
+            <p className="text-base text-slate-300 leading-relaxed max-w-[60ch]">
+              Respuestas claras sobre índices, fechas de actualización y el uso de la calculadora.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-slate-800/80 bg-slate-900/70 p-6 text-sm text-slate-300">
+            Si necesitás una guía rápida, consultá la metodología o probá la calculadora con un contrato real.
+          </div>
         </div>
       </section>
 
       {/* ── FAQ List ── */}
-      <section className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
+      <section className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="space-y-4">
           {faqs.map((faq, i) => (
             <details
               key={i}
-              className="group rounded-2xl border border-slate-200 bg-white shadow-sm transition-all open:shadow-lg open:shadow-indigo-500/10"
+              className="group rounded-3xl border border-slate-200/80 bg-white shadow-[0_12px_30px_-24px_rgba(15,23,42,0.35)] transition-all open:shadow-[0_18px_40px_-28px_rgba(15,23,42,0.4)]"
             >
-              <summary className="flex cursor-pointer items-center justify-between gap-3 px-4 py-4 text-left text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:gap-4 sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 px-4 py-4 text-left text-sm font-bold text-slate-900 transition hover:text-emerald-600 sm:gap-4 sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
                 <span className="flex items-center gap-2 sm:gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-[10px] font-bold text-indigo-600 sm:h-8 sm:w-8 sm:text-xs">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-[10px] font-bold text-emerald-600 sm:h-8 sm:w-8 sm:text-xs">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {faq.q}
@@ -107,7 +105,7 @@ export default function FaqPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 p-6 text-center sm:mt-12 sm:p-8">
+        <div className="mt-10 rounded-3xl border border-emerald-100 bg-emerald-50/60 p-6 text-center sm:mt-12 sm:p-8">
           <h2 className="text-lg font-bold text-slate-900 sm:text-xl">¿Querés calcular cuánto aumenta tu alquiler?</h2>
           <p className="mt-2 text-sm text-slate-600">
             Usá nuestra calculadora de alquiler o revisá la metodología de cálculo de aumento.
@@ -115,13 +113,13 @@ export default function FaqPage() {
           <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Link
               href="/metodologia"
-              className="inline-flex items-center justify-center rounded-full bg-indigo-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white shadow-[0_18px_36px_-24px_rgba(5,150,105,0.9)] transition-[transform,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-emerald-500 active:translate-y-[1px]"
             >
               Ver metodología
             </Link>
             <Link
               href="/calculadora"
-              className="inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-indigo-200 hover:text-indigo-600"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-2.5 text-sm font-semibold text-slate-700 transition-[transform,border-color,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-emerald-200 hover:text-emerald-600 active:translate-y-[1px]"
             >
               Ir a la calculadora
             </Link>

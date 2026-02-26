@@ -12,7 +12,7 @@ export const Input = ({ label, helper, error, className, ...props }: InputProps)
     {label && <span>{label}</span>}
     <input
       className={cn(
-        "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/30",
+        "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/25",
         error && "border-rose-300 focus:border-rose-400 focus:ring-rose-200",
         className
       )}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getIndexMetaList } from "@/lib/indices";
+import { PulseDot } from "@/components/ui/PulseDot";
 
 export const metadata: Metadata = {
   title: "Índice de Alquiler Hoy — ICL, IPC, UVA y Más | Actualización Alquiler Argentina",
@@ -14,44 +15,43 @@ export default function IndicesPage() {
   return (
     <div>
       {/* ── Page Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-        <div className="pointer-events-none absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-[300px] w-[300px] rounded-full bg-violet-500/15 blur-3xl" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Índice de alquiler hoy
-          </span>
-          <h1 className="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
-            Índices de{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              actualización de alquiler
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
+          <div className="space-y-4">
+            <span className="inline-flex w-fit items-center gap-3 rounded-full border border-slate-700/80 bg-slate-800/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-200">
+              <PulseDot />
+              Índice de alquiler hoy
             </span>
-          </h1>
-          <p className="max-w-lg text-base leading-relaxed text-slate-300">
-            Consultá el valor del índice de alquiler hoy. Fichas y fuentes oficiales
-            de cada indicador para la actualización de alquileres en Argentina 2026.
-          </p>
+            <h1 className="text-3xl font-semibold tracking-tighter leading-none md:text-5xl">
+              Índices oficiales para actualizar alquileres
+            </h1>
+            <p className="text-base text-slate-300 leading-relaxed max-w-[60ch]">
+              Consultá cada índice con su frecuencia, fuente oficial y descripción. Todas las fichas están listas para revisar antes de calcular un contrato.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-slate-800/80 bg-slate-900/70 p-6 text-sm text-slate-300">
+            Elegí el índice que corresponde al contrato y consultá su ficha con el detalle de la fuente pública.
+          </div>
         </div>
       </section>
 
       {/* ── Index Grid ── */}
-      <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
           {indices.map((index) => (
             <Link
               key={index.code}
               href={`/indices/${index.code.toLowerCase()}`}
-              className="group relative rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-500/10 sm:p-6"
+              className="group relative rounded-3xl border border-slate-200/80 bg-white p-5 shadow-[0_18px_36px_-30px_rgba(15,23,42,0.3)] transition-all duration-200 hover:-translate-y-1 sm:p-6"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-lg font-bold text-indigo-600 transition-colors group-hover:bg-indigo-100">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-lg font-bold text-emerald-600">
                 {index.code.slice(0, 2)}
               </div>
               <h2 className="text-lg font-bold text-slate-900">{index.name}</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
                 {index.description}
               </p>
-              <p className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-indigo-600 transition-colors group-hover:text-indigo-500">
+              <p className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-emerald-600">
                 Ver ficha completa
                 <span className="transition-transform group-hover:translate-x-0.5">→</span>
               </p>

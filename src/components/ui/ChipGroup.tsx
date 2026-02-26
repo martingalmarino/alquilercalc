@@ -35,10 +35,10 @@ export const ChipGroup = <T extends string | number>({
             onClick={() => onChange(option.value)}
             disabled={disabled}
             className={cn(
-              "rounded-full border px-3 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/40",
+              "rounded-full border px-3 py-2 text-sm font-semibold transition-[transform,background-color,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/30 active:translate-y-[1px]",
               disabled && "cursor-not-allowed opacity-60",
               active
-                ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                ? "border-emerald-600 bg-emerald-600 text-white shadow-[0_16px_32px_-22px_rgba(5,150,105,0.8)]"
                 : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
             )}
           >

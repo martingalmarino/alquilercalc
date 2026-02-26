@@ -1,13 +1,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
-  BarChart3,
-  RefreshCw,
-  Share2,
-  Smartphone,
-  Search,
-  TrendingUp,
-} from "lucide-react";
+  ChartBar,
+  ArrowClockwise,
+  ShareNetwork,
+  DeviceMobile,
+  MagnifyingGlass,
+  TrendUp,
+} from "@phosphor-icons/react/dist/ssr";
+import { MagneticLink } from "@/components/ui/MagneticLink";
+import { PulseDot } from "@/components/ui/PulseDot";
 
 export const metadata: Metadata = {
   title: "Calculadora de Alquiler Argentina 2026 — Cuánto Aumenta el Alquiler",
@@ -39,151 +41,119 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-        {/* decorative blobs */}
-        <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-violet-500/15 blur-3xl" />
-
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-5 px-4 py-16 text-center sm:gap-6 sm:px-6 sm:py-24 md:py-32">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Simulador aumento alquiler — Gratis
-          </span>
-
-          <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-6xl">
-            Calculadora de alquiler:{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              calculá tu aumento 2026
-            </span>
-          </h1>
-
-          <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            ¿Cuánto aumenta el alquiler? Simulá la actualización de tu alquiler en Argentina
-            con ICL, IPC, Casa Propia y más índices oficiales. Proyectá toda la vida del
-            contrato, exportá CSV y compartí resultados.
-          </p>
-
-          <div className="mt-4 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
-            <Link
-              href="/calculadora"
-              className="inline-flex items-center justify-center rounded-full bg-indigo-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400 hover:shadow-indigo-400/30"
-            >
-              Ir a la calculadora →
-            </Link>
-            <Link
-              href="/metodologia"
-              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white/90 transition hover:border-white/40 hover:text-white"
-            >
-              Ver metodología
-            </Link>
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:py-24">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 rounded-full border border-slate-700/80 bg-slate-800/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-200">
+              <PulseDot />
+              Actualización en tiempo real
+            </div>
+            <h1 className="text-4xl font-semibold tracking-tighter leading-none md:text-6xl">
+              Calculadora de alquiler para seguir tu actualización 2026
+            </h1>
+            <p className="text-base text-slate-300 leading-relaxed max-w-[65ch]">
+              Simulá el aumento de alquiler en Argentina con índices oficiales y obtené un cronograma completo del contrato. Exportá el detalle en CSV o compartí el link con tu inmobiliaria.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <MagneticLink
+                href="/calculadora"
+                className="items-center justify-center rounded-full bg-emerald-600 px-8 py-3 text-sm font-bold text-white shadow-[0_18px_36px_-24px_rgba(5,150,105,0.9)] transition-[transform,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-emerald-500 active:translate-y-[1px]"
+              >
+                Ir a la calculadora
+              </MagneticLink>
+              <Link
+                href="/metodologia"
+                className="inline-flex items-center justify-center rounded-full border border-slate-700 px-8 py-3 text-sm font-semibold text-slate-200 transition-[transform,color,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-slate-500 hover:text-white active:translate-y-[1px]"
+              >
+                Ver metodología
+              </Link>
+            </div>
+            <div className="text-xs uppercase tracking-[0.25em] text-slate-400">
+              Datos oficiales. Fórmula transparente. Sin registros.
+            </div>
+          </div>
+          <div className="rounded-3xl border border-slate-800/90 bg-slate-900/70 p-6 shadow-[0_30px_60px_-45px_rgba(15,23,42,0.9)]">
+            <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-400">
+              Panorama de contrato
+              <span className="text-emerald-300">Actualizado hoy</span>
+            </div>
+            <div className="mt-6 space-y-4">
+              {[
+                {
+                  title: "Índices oficiales activos",
+                  value: "ICL · IPC · UVA · Casa Propia",
+                  icon: ChartBar,
+                },
+                {
+                  title: "Cronograma de ajustes",
+                  value: "Actualizaciones por período con trazabilidad",
+                  icon: TrendUp,
+                },
+                {
+                  title: "Exportación inmediata",
+                  value: "CSV + link compartible para cada contrato",
+                  icon: ShareNetwork,
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-3 border-t border-slate-800/80 pt-4">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-300">
+                    <item.icon size={20} weight="regular" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-100">{item.title}</p>
+                    <p className="text-xs leading-relaxed text-slate-400">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Features ── */}
-      <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
-        <div className="mb-8 text-center sm:mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            Cómo calcular el aumento de alquiler en Argentina
-          </h2>
-          <p className="mt-3 text-slate-500">
-            Nuestra calculadora de alquiler está diseñada para inquilinos, propietarios e inmobiliarias.
-          </p>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              icon: <BarChart3 className="h-5 w-5" />,
-              title: "8 índices de alquiler hoy",
-              description:
-                "Consultá el índice de alquiler hoy: ICL, IPC, Casa Propia, CAC, CER, IS, IPIM y UVA con datos actualizados.",
-            },
-            {
-              icon: <RefreshCw className="h-5 w-5" />,
-              title: "Simulador aumento alquiler",
-              description:
-                "Simulá el aumento de alquiler 2026 período por período: índice, factor y monto actualizados automáticamente.",
-            },
-            {
-              icon: <TrendingUp className="h-5 w-5" />,
-              title: "Cronograma de actualización",
-              description:
-                "Tabla y gráfico con la evolución del alquiler a lo largo de todo el contrato. Sabé cuánto aumenta el alquiler cada período.",
-            },
-            {
-              icon: <Share2 className="h-5 w-5" />,
-              title: "Compartí y exportá",
-              description:
-                "Generá un link con los resultados, descargá el cronograma en CSV o imprimí el resumen del aumento de alquiler.",
-            },
-            {
-              icon: <Smartphone className="h-5 w-5" />,
-              title: "Calculadora mobile-first",
-              description:
-                "La calculadora de alquiler funciona perfecto en celular, tablet y escritorio. Rápida y accesible.",
-            },
-            {
-              icon: <Search className="h-5 w-5" />,
-              title: "Transparente y confiable",
-              description:
-                "Fórmula abierta, fuentes oficiales documentadas (BCRA, INDEC) y metodología de cálculo explicada.",
-            },
-          ].map((feature) => (
-            <div
-              key={feature.title}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100/50"
-            >
-              <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                {feature.icon}
-              </span>
-              <h3 className="text-base font-bold text-slate-900">{feature.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── How it works ── */}
-      <section className="bg-slate-50">
-        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-20">
-          <div className="mb-8 text-center sm:mb-12">
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Cómo calcular aumento de alquiler en 3 pasos</h2>
-            <p className="mt-3 text-sm text-slate-500 sm:text-base">Usá nuestro simulador de aumento de alquiler y obtené resultados en segundos.</p>
+      <section className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900">Todo el aumento de alquiler en un solo tablero</h2>
+            <p className="text-base text-slate-600 leading-relaxed max-w-[65ch]">
+              AlquilerCalc organiza cada etapa del contrato con un sistema claro de índices y ajustes. Cada cálculo queda documentado para que inquilinos y propietarios comparen escenarios sin dudas.
+            </p>
           </div>
-
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
+          <div className="divide-y divide-slate-200 rounded-3xl border border-slate-200/80 bg-white">
             {[
               {
-                step: "01",
-                title: "Cargá los datos del contrato",
-                description:
-                  "Ingresá el alquiler inicial, la fecha de inicio y la frecuencia de actualización pactada.",
+                title: "Índices oficiales por contrato",
+                description: "Elegí ICL, IPC, UVA o Casa Propia con fuentes verificadas y trazabilidad por período.",
+                icon: ChartBar,
               },
               {
-                step: "02",
-                title: "Elegí el índice de alquiler",
-                description:
-                  "Seleccioná entre ICL, IPC, Casa Propia, CAC y otros índices para calcular el aumento de alquiler.",
+                title: "Proyección precisa de ajustes",
+                description: "Generá el cronograma completo con fechas, factores y valores actualizados automáticamente.",
+                icon: ArrowClockwise,
               },
               {
-                step: "03",
-                title: "Consultá cuánto aumenta",
-                description:
-                  "Obtené la proyección completa del aumento de alquiler 2026 con tabla, gráfico y exportación a CSV.",
+                title: "Compartir y exportar",
+                description: "Copiá el link, exportá CSV y guardá el historial con un único flujo.",
+                icon: ShareNetwork,
               },
-            ].map((item) => (
-              <div key={item.step} className="flex gap-5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-sm font-bold text-white">
-                  {item.step}
+              {
+                title: "Experiencia mobile-first",
+                description: "Usá la calculadora desde el celular con la misma claridad que en escritorio.",
+                icon: DeviceMobile,
+              },
+              {
+                title: "Metodología abierta",
+                description: "Accedé a la fórmula, fuentes y reglas de cálculo en un mismo lugar.",
+                icon: MagnifyingGlass,
+              },
+            ].map((feature) => (
+              <div key={feature.title} className="flex gap-4 px-6 py-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                  <feature.icon size={20} weight="regular" />
                 </span>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-500">
-                    {item.description}
-                  </p>
+                  <p className="text-sm font-semibold text-slate-900">{feature.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-500">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -191,19 +161,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── How it works ── */}
+      <section className="bg-slate-50">
+        <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-900">Tres pasos claros para calcular el aumento</h2>
+              <div className="divide-y divide-slate-200 rounded-3xl border border-slate-200/80 bg-white">
+                {[
+                  {
+                    step: "01",
+                    title: "Cargá el contrato",
+                    description: "Ingresá el alquiler inicial y la fecha de inicio con la frecuencia acordada.",
+                  },
+                  {
+                    step: "02",
+                    title: "Elegí el índice",
+                    description: "Seleccioná el índice oficial correspondiente para la actualización.",
+                  },
+                  {
+                    step: "03",
+                    title: "Revisá el cronograma",
+                    description: "Obtené el detalle de cada período con factor y monto actualizado.",
+                  },
+                ].map((item) => (
+                  <div key={item.step} className="flex gap-4 px-6 py-6">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-xs font-semibold text-white">
+                      {item.step}
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-500">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_40px_-30px_rgba(15,23,42,0.35)]">
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Información clave</p>
+              <h3 className="mt-4 text-lg font-semibold text-slate-900">
+                Todo el contrato en un único panel de resultados
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                El cronograma muestra fechas, índices y valores ajustados con un formato que se puede imprimir o compartir. Las fuentes quedan registradas para que cada ajuste sea verificable.
+              </p>
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+                Incluye tabla detallada, gráfico de evolución y exportación inmediata en CSV.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
-      <section className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
-        <div className="flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-12 text-center shadow-xl shadow-indigo-600/20 sm:gap-6 sm:px-8 sm:py-16">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">¿Cuánto aumenta el alquiler en 2026?</h2>
-          <p className="max-w-md text-indigo-100">
-            Usá nuestra calculadora de alquiler y obtené una proyección clara del aumento en segundos.
-          </p>
-          <Link
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20">
+        <div className="grid gap-6 rounded-3xl border border-slate-200/80 bg-white px-6 py-10 shadow-[0_25px_60px_-45px_rgba(15,23,42,0.35)] lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <h2 className="text-2xl font-semibold text-slate-900">¿Listo para calcular tu próximo ajuste?</h2>
+            <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">
+              Usá la calculadora y generá el cronograma completo con datos oficiales, sin registro y con exportación inmediata.
+            </p>
+          </div>
+          <MagneticLink
             href="/calculadora"
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-bold text-indigo-700 shadow-lg transition hover:bg-indigo-50"
+            className="items-center justify-center rounded-full bg-emerald-600 px-8 py-3 text-sm font-bold text-white shadow-[0_18px_36px_-24px_rgba(5,150,105,0.9)] transition-[transform,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-emerald-500 active:translate-y-[1px]"
           >
-            Abrir la calculadora de alquiler →
-          </Link>
+            Abrir la calculadora
+          </MagneticLink>
         </div>
       </section>
     </div>

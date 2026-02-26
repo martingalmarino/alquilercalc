@@ -6,7 +6,7 @@ type CardProps = HTMLAttributes<HTMLDivElement>;
 export const Card = ({ className, ...props }: CardProps) => (
   <div
     className={cn(
-      "rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur",
+      "rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_40px_-30px_rgba(15,23,42,0.35)]",
       className
     )}
     {...props}

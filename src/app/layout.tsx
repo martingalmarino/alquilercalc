@@ -80,9 +80,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-[100dvh] bg-background antialiased`}
       >
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-[100dvh] flex-col">
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

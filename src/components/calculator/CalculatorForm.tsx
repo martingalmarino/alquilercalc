@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import { addMonths, format, parseISO } from "date-fns";
 import {
   Calculator,
-  CalendarDays,
-  DollarSign,
-  BarChart3,
+  Calendar,
+  CurrencyDollar,
+  ChartBar,
   Clock,
-  Loader2,
-} from "lucide-react";
+  SpinnerGap,
+  WarningCircle,
+} from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ChipGroup } from "@/components/ui/ChipGroup";
@@ -164,8 +165,8 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
           {/* Section 1: Contract basics */}
           <div className="p-4 sm:p-6 md:p-8">
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                <DollarSign className="h-[18px] w-[18px]" />
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                <CurrencyDollar size={18} weight="regular" />
               </span>
               <div>
                 <h3 className="text-sm font-bold text-slate-900">Datos del contrato</h3>
@@ -192,8 +193,8 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
           {/* Section 2: Index selection */}
           <div className="p-4 sm:p-6 md:p-8">
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                <BarChart3 className="h-[18px] w-[18px]" />
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                <ChartBar size={18} weight="regular" />
               </span>
               <div>
                 <h3 className="text-sm font-bold text-slate-900">Índice de actualización</h3>
@@ -222,8 +223,8 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
           {/* Section 3: Frequency & Duration */}
           <div className="p-4 sm:p-6 md:p-8">
             <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                <Clock className="h-[18px] w-[18px]" />
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                <Clock size={18} weight="regular" />
               </span>
               <div>
                 <h3 className="text-sm font-bold text-slate-900">Frecuencia y duración</h3>
@@ -261,7 +262,10 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
         {/* ── Error banner ── */}
         {apiError && (
           <div className="mx-4 mb-0 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 sm:mx-6 md:mx-8">
-            <p className="font-medium">⚠ {apiError}</p>
+            <p className="flex items-center gap-2 font-medium">
+              <WarningCircle size={16} weight="regular" />
+              {apiError}
+            </p>
           </div>
         )}
 
@@ -270,12 +274,12 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
           <Button type="button" onClick={handleCalculate} disabled={loading} className="w-full sm:w-auto">
             {loading ? (
               <>
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <SpinnerGap size={16} weight="regular" className="animate-spin" />
                 Calculando…
               </>
             ) : (
               <>
-                <Calculator className="h-4 w-4" />
+                <Calculator size={16} weight="regular" />
                 Calcular ajuste
               </>
             )}
@@ -299,7 +303,7 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
       {!results && embedded && (
         <Card className="border-dashed border-slate-300 bg-white/60">
           <div className="flex items-center gap-3 text-slate-500">
-            <CalendarDays className="h-5 w-5 text-slate-400" />
+            <Calendar size={20} weight="regular" className="text-slate-400" />
             <p className="text-sm">
               Completá los datos para visualizar el cronograma y el gráfico.
             </p>

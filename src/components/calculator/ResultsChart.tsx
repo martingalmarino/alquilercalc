@@ -9,7 +9,7 @@ import {
   Tooltip as RechartsTooltip,
   CartesianGrid,
 } from "recharts";
-import { TrendingUp } from "lucide-react";
+import { TrendUp } from "@phosphor-icons/react/dist/ssr";
 import { Card } from "@/components/ui/Card";
 import { ScheduleRow } from "@/lib/calc";
 import { formatCurrency } from "@/lib/format";
@@ -17,8 +17,8 @@ import { formatCurrency } from "@/lib/format";
 export const ResultsChart = ({ rows }: { rows: ScheduleRow[] }) => (
   <Card className="p-4 sm:p-6">
     <div className="mb-4 flex items-center gap-3">
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-        <TrendingUp className="h-4 w-4" />
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+        <TrendUp size={16} weight="regular" />
       </div>
       <div>
         <h3 className="text-sm font-bold text-slate-900 sm:text-base">Evolución del alquiler</h3>
@@ -42,7 +42,7 @@ export const ResultsChart = ({ rows }: { rows: ScheduleRow[] }) => (
           <Line
             type="monotone"
             dataKey="rent"
-            stroke="#4338ca"
+            stroke="#059669"
             strokeWidth={3}
             dot={false}
           />

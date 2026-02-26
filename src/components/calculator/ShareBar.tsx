@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Link2, Download, Printer, Check } from "lucide-react";
+import { LinkSimple, Download, Printer, Check } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/Button";
 import { ScheduleRow } from "@/lib/calc";
 import { formatCurrency } from "@/lib/format";
@@ -26,11 +26,14 @@ const buildCsv = (rows: ScheduleRow[]) => {
   return [header, ...lines].map((line) => line.join(",")).join("\n");
 };
 
-export const ShareBar = ({ shareUrl, rows }: { shareUrl: string; rows: ScheduleRow[] }) => {
+export const ShareBar = ({ shareUrl = "", rows }: { shareUrl?: string; rows: ScheduleRow[] }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(shareUrl);
+    const resolvedUrl =
+      shareUrl || (typeof window !== "undefined" ? window.location.href : "");
+    if (!resolvedUrl) return;
+    await navigator.clipboard.writeText(resolvedUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -48,15 +51,15 @@ export const ShareBar = ({ shareUrl, rows }: { shareUrl: string; rows: ScheduleR
   return (
     <div className="grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
       <Button type="button" variant="outline" onClick={handleCopy} className="w-full sm:w-auto">
-        {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
-        {copied ? "¡Copiado!" : "Copiar enlace"}
+        {copied ? <Check size={16} weight="regular" /> : <LinkSimple size={16} weight="regular" />}
+        {copied ? "Copiado" : "Copiar enlace"}
       </Button>
       <Button type="button" variant="outline" onClick={handleExport} className="w-full sm:w-auto">
-        <Download className="h-4 w-4" />
+        <Download size={16} weight="regular" />
         Exportar CSV
       </Button>
       <Button type="button" variant="ghost" onClick={() => window.print()} className="w-full sm:w-auto">
-        <Printer className="h-4 w-4" />
+        <Printer size={16} weight="regular" />
         Imprimir
       </Button>
     </div>

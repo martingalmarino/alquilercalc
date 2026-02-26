@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
+import { PulseDot } from "@/components/ui/PulseDot";
 
 export const metadata: Metadata = {
   title: "Calculadora de Alquiler 2026 — Simulador Aumento Alquiler Argentina",
@@ -11,29 +12,28 @@ export default function CalculadoraPage() {
   return (
     <div>
       {/* ── Page Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-        <div className="pointer-events-none absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-[300px] w-[300px] rounded-full bg-violet-500/15 blur-3xl" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Simulador aumento alquiler — Gratis
-          </span>
-          <h1 className="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
-            Calculadora de{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              aumento de alquiler
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-20">
+          <div className="space-y-4">
+            <span className="inline-flex w-fit items-center gap-3 rounded-full border border-slate-700/80 bg-slate-800/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-200">
+              <PulseDot />
+              Simulador gratuito
             </span>
-          </h1>
-          <p className="max-w-lg text-base leading-relaxed text-slate-300">
-            Ingresá los datos de tu contrato y calculá cuánto aumenta el alquiler
-            en 2026 con el índice que corresponda. Actualizaciones automáticas con datos oficiales.
-          </p>
+            <h1 className="text-3xl font-semibold tracking-tighter leading-none md:text-5xl">
+              Calculadora de aumento de alquiler con índices oficiales
+            </h1>
+            <p className="text-base text-slate-300 leading-relaxed max-w-[60ch]">
+              Ingresá los datos del contrato y generá el cronograma completo con valores ajustados, fechas y factores de cada período.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-slate-800/80 bg-slate-900/70 p-6 text-sm text-slate-300">
+            La herramienta calcula automáticamente la actualización según el índice pactado y guarda la última fecha de publicación disponible.
+          </div>
         </div>
       </section>
 
       {/* ── Calculator ── */}
-      <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+      <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
         <CalculatorForm />
       </section>
     </div>

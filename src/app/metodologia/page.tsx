@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Ruler, Landmark, CalendarDays, Check } from "lucide-react";
+import { Ruler, Bank, CalendarDots, Check } from "@phosphor-icons/react/dist/ssr";
+import { PulseDot } from "@/components/ui/PulseDot";
 
 export const metadata: Metadata = {
   title: "Cómo Calcular Aumento de Alquiler — Metodología y Fórmula Argentina 2026",
@@ -11,41 +12,40 @@ export default function MetodologiaPage() {
   return (
     <div>
       {/* ── Page Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-        <div className="pointer-events-none absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-[300px] w-[300px] rounded-full bg-violet-500/15 blur-3xl" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-indigo-300 sm:px-4 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Cómo calcular aumento de alquiler
-          </span>
-          <h1 className="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
-            Metodología de{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              cálculo de alquiler
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
+          <div className="space-y-4">
+            <span className="inline-flex w-fit items-center gap-3 rounded-full border border-slate-700/80 bg-slate-800/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-200">
+              <PulseDot />
+              Metodología abierta
             </span>
-          </h1>
-          <p className="max-w-lg text-base leading-relaxed text-slate-300">
-            Cómo calculamos el aumento de alquiler, qué índices usamos y cómo tratamos
-            los faltantes. Fórmula abierta y transparente.
-          </p>
+            <h1 className="text-3xl font-semibold tracking-tighter leading-none md:text-5xl">
+              Cómo calculamos el aumento de alquiler
+            </h1>
+            <p className="text-base text-slate-300 leading-relaxed max-w-[60ch]">
+              Documentamos cada paso del cálculo, las fuentes oficiales y el tratamiento de faltantes para que puedas auditar cada ajuste.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-slate-800/80 bg-slate-900/70 p-6 text-sm text-slate-300">
+            Fórmula pública, fuentes verificadas y reglas de respaldo para fechas sin datos oficiales.
+          </div>
         </div>
       </section>
 
       {/* ── Content Sections ── */}
-      <section className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
+      <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="space-y-8">
           {/* Formula */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-              <Ruler className="h-5 w-5" />
+          <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_40px_-30px_rgba(15,23,42,0.35)] sm:p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+              <Ruler size={20} weight="regular" />
             </div>
             <h2 className="text-lg font-bold text-slate-900 sm:text-xl">Fórmula para calcular el aumento de alquiler</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               El alquiler se ajusta multiplicando el valor actual por el factor del índice
               correspondiente al período. Así se calcula cuánto aumenta el alquiler:
             </p>
-            <div className="mt-4 overflow-x-auto rounded-xl border border-indigo-100 bg-indigo-50/50 px-4 py-3 font-mono text-xs font-semibold text-indigo-700 sm:px-5 sm:py-4 sm:text-sm">
+            <div className="mt-4 overflow-x-auto rounded-xl border border-emerald-100 bg-emerald-50/50 px-4 py-3 font-mono text-xs font-semibold text-emerald-700 sm:px-5 sm:py-4 sm:text-sm">
               nuevoAlquiler = alquilerAnterior × (ÍndiceFin / ÍndiceInicio)
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">
@@ -55,9 +55,9 @@ export default function MetodologiaPage() {
           </div>
 
           {/* Sources */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-              <Landmark className="h-5 w-5" />
+          <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_40px_-30px_rgba(15,23,42,0.35)] sm:p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+              <Bank size={20} weight="regular" />
             </div>
             <h2 className="text-lg font-bold text-slate-900 sm:text-xl">Fuentes de datos: índices de alquiler oficiales</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
@@ -74,8 +74,8 @@ export default function MetodologiaPage() {
                   key={item.source}
                   className="flex items-start gap-3 rounded-xl bg-slate-50 p-4"
                 >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
-                    <Check className="h-3.5 w-3.5" />
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                    <Check size={14} weight="bold" />
                   </span>
                   <div>
                     <p className="text-sm font-bold text-slate-900">{item.source}</p>
@@ -87,9 +87,9 @@ export default function MetodologiaPage() {
           </div>
 
           {/* Frequency & Dates */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-              <CalendarDays className="h-5 w-5" />
+          <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_40px_-30px_rgba(15,23,42,0.35)] sm:p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+              <CalendarDots size={20} weight="regular" />
             </div>
             <h2 className="text-lg font-bold text-slate-900 sm:text-xl">Frecuencia y fechas de actualización de alquiler</h2>
             <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600">
