@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ChartBar,
@@ -59,14 +58,8 @@ export default function Home() {
                 href="/calculadora"
                 className="items-center justify-center rounded-full bg-emerald-600 px-8 py-3 text-sm font-bold text-white shadow-[0_18px_36px_-24px_rgba(5,150,105,0.9)] transition-[transform,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-emerald-500 active:translate-y-[1px]"
               >
-                Ir a la calculadora
+                Calcular aumento
               </MagneticLink>
-              <Link
-                href="/metodologia"
-                className="inline-flex items-center justify-center rounded-full border border-slate-700 px-8 py-3 text-sm font-semibold text-slate-200 transition-[transform,color,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-slate-500 hover:text-white active:translate-y-[1px]"
-              >
-                Ver metodología
-              </Link>
             </div>
             <div className="text-xs uppercase tracking-[0.25em] text-slate-400">
               Datos oficiales. Fórmula transparente. Sin registros.
@@ -226,7 +219,7 @@ export default function Home() {
             href="/calculadora"
             className="items-center justify-center rounded-full bg-emerald-600 px-8 py-3 text-sm font-bold text-white shadow-[0_18px_36px_-24px_rgba(5,150,105,0.9)] transition-[transform,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-emerald-500 active:translate-y-[1px]"
           >
-            Abrir la calculadora
+            Calcular aumento
           </MagneticLink>
         </div>
       </section>
