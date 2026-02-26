@@ -118,7 +118,15 @@ export const CalculatorForm = ({ embedded = false }: { embedded?: boolean }) => 
     try {
       const from = contractStart;
       const to = format(addMonths(parseISO(contractStart), durationMonths), "yyyy-MM-dd");
-      const payload = await fetchIndexSeries(indexCode, from, to);
+      const fetchWithRetry = async () => {
+        try {
+          return await fetchIndexSeries(indexCode, from, to);
+        } catch {
+          await new Promise((resolve) => setTimeout(resolve, 500));
+          return await fetchIndexSeries(indexCode, from, to);
+        }
+      };
+      const payload = await fetchWithRetry();
 
       if (!payload.series || payload.series.length === 0) {
         setApiError(
