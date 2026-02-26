@@ -40,6 +40,14 @@ export const Footer = () => (
           Calculadora de Patentes Argentina
         </a>
         <a
+          href="https://www.calculadoralaboral.com.ar/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-500 transition hover:text-slate-800"
+        >
+          Calculadora de Indemnización
+        </a>
+        <a
           href="https://patentearba.com/"
           target="_blank"
           rel="noopener noreferrer"
